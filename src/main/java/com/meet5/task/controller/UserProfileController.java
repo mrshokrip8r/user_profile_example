@@ -37,7 +37,7 @@ public class UserProfileController {
     public ResponseEntity<?> like(@RequestParam Integer sourceId, @RequestParam Integer destinationId) {
         try {
             interactionService.validation(sourceId, destinationId);
-            Interaction interaction = interactionService.interaction(sourceId, destinationId, InteractionType.VISIT);
+            Interaction interaction = interactionService.interaction(sourceId, destinationId, InteractionType.LIKE);
             return new ResponseEntity<>(interaction, HttpStatus.CREATED);
         } catch (InteractionException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
